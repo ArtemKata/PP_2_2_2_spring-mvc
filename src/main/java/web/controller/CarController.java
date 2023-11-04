@@ -22,12 +22,7 @@ public class CarController {
 
     @GetMapping("/cars")
     public String getCars(@RequestParam(value = "count", required = false) Integer count, Model model) {
-        List<Car> cars;
-        if (count == null || count <= 0) {
-            cars = carService.getAllCars(); // Если count не указан или недопустим, получить все машины
-        } else {
-            cars = carService.getCarsByCount(count); // В противном случае получить запрошенное количество машин
-        }
+        List<Car> cars = carService.getCarsByCount(count);
         model.addAttribute("cars", cars);
         return "car";
     }

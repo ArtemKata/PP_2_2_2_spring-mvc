@@ -22,11 +22,5 @@ public class CarDao {
     public List<Car> getCars() {
         return cars;
     }
-    public List<Car> countCar(int count) {
-        if (count >= cars.size()) {
-            return cars;
-        } else {
-            return cars.stream().limit(count).collect(Collectors.toList());
-        }
-    }
+
 }
